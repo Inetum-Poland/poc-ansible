@@ -1,0 +1,21 @@
+---
+- name: Update all packages
+  ansible.builtin.apt:
+    update_cache: yes
+
+- name: Install "unattended-upgrades"
+  ansible.builtin.apt:
+    name: unattended-upgrades
+    state: present
+
+- name: Verify unattended-upgrades service is running
+  ansible.builtin.service:
+    name: unattended-upgrades
+    enabled: true
+    state: started
+
+- name: Configure unattended-upgrades
+  ansible.builtin.include_tasks: 50unattended-upgrades.yml
+
+- name: Configure auto-upgrades
+  ansible.builtin.include_tasks: 20auto-upgrades.yml

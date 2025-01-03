@@ -6,16 +6,14 @@ description: File a feature request so we better understand how to implement it.
 title: "feat(<scope>): <title>"
 labels: ["feature"]
 assignees:
-  - kocyba
-  - aamkye
+# TODO: Add your team's assignees
 body:
   - type: markdown
     attributes:
       value: |
         Thank you for taking the time to file a feature request.
         Please fill out the following information about the feature you are requesting.
-        Also please make sure that the `\<scope\>` and `\<title\>` in the title are correct.
-        If you are not sure about anything, please ask @kocyba or @aamkye.
+        Also please make sure that the **scope** and **title** in the title are correct.
 
   # Context
   - type: textarea

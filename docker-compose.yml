@@ -1,0 +1,85 @@
+services:
+  app01:
+    build:
+      context: .
+      dockerfile: app01.dockerfile
+    image: app01
+    ports:
+      - "22"
+    networks:
+      - awx
+    volumes:
+      - ./ssh/authorized_keys:/root/.ssh/authorized_keys:ro
+    cap_add:
+      - NET_RAW
+
+  app02:
+    build:
+      context: .
+      dockerfile: app02.dockerfile
+    image: app02
+    ports:
+      - "22"
+    networks:
+      - awx
+    volumes:
+      - ./ssh/authorized_keys:/root/.ssh/authorized_keys:ro
+    cap_add:
+      - NET_RAW
+
+  app03:
+    build:
+      context: .
+      dockerfile: app03.dockerfile
+    image: app03
+    ports:
+      - "22"
+    networks:
+      - awx
+    volumes:
+      - ./ssh/authorized_keys:/root/.ssh/authorized_keys:ro
+    cap_add:
+      - NET_RAW
+
+  app04:
+    build:
+      context: .
+      dockerfile: app04.dockerfile
+    image: app04
+    ports:
+      - "22"
+    networks:
+      - awx
+    volumes:
+      - ./ssh/authorized_keys:/root/.ssh/authorized_keys:ro
+    cap_add:
+      - NET_RAW
+
+  executor:
+    build:
+      context: .
+      dockerfile: executor.dockerfile
+    image: executor
+    networks:
+      - awx
+    volumes:
+      - ./ssh/:/root/.ssh/:ro
+      - ./ansible:/app
+    cap_add:
+      - NET_RAW
+
+  ara:
+    image: quay.io/recordsansible/ara-api:latest
+    ports:
+      - "8000:8000"
+    networks:
+      - awx
+    depends_on:
+      - executor
+    environment:
+      ARA_ALLOWED_HOSTS: '["*"]'
+
+
+networks:
+  awx:
+    driver: bridge

@@ -1,2 +1,2 @@
-**/.DS_Store
-**/.env
+ssh/ssh.*
+ssh/authorized_keys
