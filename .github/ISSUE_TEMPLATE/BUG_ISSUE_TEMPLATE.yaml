@@ -6,7 +6,7 @@ description: File a bug report so we better understand how to fix it.
 title: "bug(<scope>): <title>"
 labels: ["bug"]
 assignees:
-  - aamkye
+# TODO: Add your team's assignees
 body:
   - type: markdown
     attributes:
@@ -14,7 +14,6 @@ body:
         Thank you for taking the time to file a bug report.
         Please fill out the following information about the bug you are reporting.
         Also please make sure that the `\<scope\>` and `\<title\>` in the title are correct.
-        If you are not sure about anything, please ask @kocyba or @aamkye.
 
   # Why
   - type: textarea

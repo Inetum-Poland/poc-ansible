@@ -1,0 +1,21 @@
+Host app01,app02,app03,app04
+  IdentityFile ~/.ssh/ssh.ed25519.ansible.test.prv
+
+Host *
+  AddKeysToAgent 1s
+  Compression yes
+  ConnectionAttempts 2
+  ControlMaster no
+  ForwardAgent yes
+  ForwardX11 no
+  GlobalKnownHostsFile /dev/null
+  HashKnownHosts yes
+  LogLevel ERROR
+  PreferredAuthentications publickey,keyboard-interactive
+  Protocol 2
+  ServerAliveCountMax 5
+  ServerAliveInterval 60s
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+
+  IdentityFile ~/.ssh/ssh.ed25519.ansible.test.prv
